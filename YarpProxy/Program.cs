@@ -24,6 +24,7 @@ builder.Services.AddOpenTelemetry()
     .ConfigureResource(resource => resource.AddService(serviceName))
     .WithTracing(tracing => tracing
         .AddAspNetCoreInstrumentation()
+        .AddHttpClientInstrumentation()
         // enable YARP distributed tracing
         // see https://microsoft.github.io/reverse-proxy/articles/distributed-tracing.html
         .AddSource("Yarp.ReverseProxy") 
